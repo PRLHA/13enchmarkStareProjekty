@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://torpedos.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Classes/Room_class.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/NavNode.gd" type="Script" id=3]
+
+[node name="Torpedos" type="Polygon2D"]
+texture = ExtResource( 1 )
+texture_offset = Vector2( 128, 64 )
+polygon = PoolVector2Array( -64, 8, 64, 8, 64, -64, -128, -64 )
+script = ExtResource( 2 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_E" type="Position2D" parent="Doors"]
+position = Vector2( 64, 0 )
+script = ExtResource( 3 )
+con_FU = [ NodePath("../../Positions/Gunner") ]
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Gunner" type="Position2D" parent="Positions"]
+position = Vector2( 32, 0 )
+script = ExtResource( 3 )
+con_FU = [ NodePath("../Loader"), NodePath("../../Doors/Door_E") ]
+
+[node name="Loader" type="Position2D" parent="Positions"]
+position = Vector2( -40, 0 )
+script = ExtResource( 3 )
+con_FU = [ NodePath("../Gunner") ]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -64, 8, 64, 8, 64, -64, -128, -64 )

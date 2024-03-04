@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/NavNode.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Classes/Room_class.gd" type="Script" id=2]
+[ext_resource path="res://acess_shaft_1.png" type="Texture" id=3]
+
+[node name="Acess_shaft_1" type="Polygon2D"]
+position = Vector2( 0, -128 )
+offset = Vector2( 0, 128 )
+texture = ExtResource( 3 )
+texture_offset = Vector2( 40, 136 )
+polygon = PoolVector2Array( -40, -64, -40, 8, 40, 8, 40, -264, -32, -264, -32, -64 )
+script = ExtResource( 2 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_W" type="Position2D" parent="Doors"]
+position = Vector2( -40, 128 )
+script = ExtResource( 1 )
+con_FU = [ NodePath("../../Positions/Lower") ]
+
+[node name="Door_N" type="Position2D" parent="Doors"]
+position = Vector2( 40, -72 )
+script = ExtResource( 1 )
+con_FU = [ NodePath("../../Positions/Upper") ]
+
+[node name="Door_S" type="Position2D" parent="Doors"]
+position = Vector2( 40, 128 )
+script = ExtResource( 1 )
+con_FU = [ NodePath("../../Positions/Lower") ]
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Lower" type="Position2D" parent="Positions"]
+position = Vector2( 0, 128 )
+script = ExtResource( 1 )
+con_FU = [ NodePath("../../Doors/Door_W"), NodePath("../../Doors/Door_S"), NodePath("../Upper") ]
+
+[node name="Upper" type="Position2D" parent="Positions"]
+position = Vector2( 0, -72 )
+script = ExtResource( 1 )
+con_FU = [ NodePath("../Lower"), NodePath("../../Doors/Door_N") ]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]

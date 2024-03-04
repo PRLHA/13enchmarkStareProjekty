@@ -1,0 +1,286 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/NavNode.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Room_scripts/Turret_1.gd" type="Script" id=2]
+[ext_resource path="res://gun_room.png" type="Texture" id=3]
+[ext_resource path="res://scope_gun.png" type="Texture" id=4]
+[ext_resource path="res://mortar_launch (online-audio-converter.com).wav" type="AudioStream" id=5]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.0927152, 0.430464, 0.622517, 1 )
+colors = PoolColorArray( 0.188235, 0, 0, 0.376471, 0.529412, 0.0235294, 0.0235294, 0.890196, 0.992188, 0.592593, 0.0271301, 1, 1, 0.843137, 0, 0.92549, 0.195313, 0.195313, 0.195313, 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fire"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Gun_Pivot/scope_gun:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.0406104, -0.107318, -15, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 1.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Gun_Pivot/scope_gun:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 1.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Gun_Pivot/scope_gun:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 1.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Gun_Pivot:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 32, -0.25, 0, 0.25, 0, 32, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Gun_Pivot:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Gun_Pivot:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( -30, -0.25, 0, 0.25, 0, -30, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Gun_Pivot/scope_gun/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Lower"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Gun_Pivot/scope_gun:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Gun_Pivot/scope_gun:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Gun_Pivot/scope_gun:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Gun_Pivot:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 32, -0.25, 0, 0.25, 0, 32, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Gun_Pivot:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Gun_Pivot:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( -30, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Take_aim"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Gun_Pivot:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 32, -0.25, 0, 0.25, 0, 32, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Gun_Pivot:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Gun_Pivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.642998, 0.739403, -30, -0.749569, 0.739357, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Gun_Pivot/scope_gun:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Gun_Pivot/scope_gun:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Gun_Pivot/scope_gun:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[node name="Gun_turret" type="Polygon2D"]
+position = Vector2( 0, -32 )
+texture = ExtResource( 3 )
+texture_offset = Vector2( 40, 40 )
+polygon = PoolVector2Array( -40, 32, 32, 32, 32, -40, -40, -40 )
+script = ExtResource( 2 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_S" type="Position2D" parent="Doors"]
+position = Vector2( 0, 24 )
+script = ExtResource( 1 )
+con_FU = [ NodePath("../../Positions/Gunner") ]
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Gunner" type="Position2D" parent="Positions"]
+position = Vector2( -24, 24 )
+script = ExtResource( 1 )
+con_FU = [ NodePath("../../Doors/Door_S") ]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+[node name="Gun_Pivot" type="Node2D" parent="."]
+position = Vector2( 32, 0 )
+rotation = -0.523599
+
+[node name="scope_gun" type="Sprite" parent="Gun_Pivot"]
+texture = ExtResource( 4 )
+offset = Vector2( 32, -5.05108 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Gun_Pivot/scope_gun"]
+position = Vector2( 112, -3 )
+rotation = -1.57079
+emitting = false
+amount = 50
+lifetime = 0.15
+one_shot = true
+direction = Vector2( 0, 1 )
+spread = 15.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 739.89
+initial_velocity_random = 0.11
+angular_velocity = 200.0
+angular_velocity_random = 0.29
+scale_amount = 15.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fire = SubResource( 2 )
+anims/Lower = SubResource( 3 )
+anims/Take_aim = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

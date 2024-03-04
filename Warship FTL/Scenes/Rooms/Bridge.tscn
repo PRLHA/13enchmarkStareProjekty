@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/NavNode.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Classes/Room_class.gd" type="Script" id=2]
+[ext_resource path="res://bridge.png" type="Texture" id=3]
+
+[node name="Bridge" type="Polygon2D"]
+position = Vector2( 0, -32 )
+texture = ExtResource( 3 )
+texture_offset = Vector2( 40, 40 )
+polygon = PoolVector2Array( -40, 32, 32, 32, 72, -40, -40, -40 )
+script = ExtResource( 2 )
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_W" type="Position2D" parent="Doors"]
+position = Vector2( -40, 24 )
+script = ExtResource( 1 )
+connections = [ NodePath("../../Positions/Helmsman") ]
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Helmsman" type="Position2D" parent="Positions"]
+position = Vector2( -8, 24 )
+script = ExtResource( 1 )
+connections = [ NodePath("../../Doors/Door_W") ]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

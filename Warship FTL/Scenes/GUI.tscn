@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -166.0
+margin_top = -160.0
+margin_right = 166.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer"]
+margin_right = 332.0
+margin_bottom = 160.0
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+region_rect = Rect2( 0.688103, 0.38567, 62.3615, 63.6884 )
+patch_margin_left = 13
+patch_margin_top = 8
+patch_margin_right = 11
+patch_margin_bottom = 12

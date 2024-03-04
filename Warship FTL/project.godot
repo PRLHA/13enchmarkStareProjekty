@@ -1,0 +1,24 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Polygon2D",
+"class": "ShipRoom",
+"language": "GDScript",
+"path": "res://Scripts/Classes/Room_class.gd"
+} ]
+_global_script_class_icons={
+"ShipRoom": "res://room_icon.png"
+}
+
+[application]
+
+config/name="Warship FTL"
+run/main_scene="res://Scenes/Scene1.tscn"
